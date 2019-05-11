@@ -33,13 +33,14 @@ public abstract class AbstractHttpDataProvider implements DataProvider{
 
         try {
             conn = (HttpURLConnection) url.openConnection();
-            conn.setConnectTimeout(CONNECT_TIMEOUT);
             conn.setRequestProperty("Accept", "application/JSON");
+            conn.setConnectTimeout(CONNECT_TIMEOUT);
             conn.setReadTimeout(READ_TIMEOUT);
             conn.connect();
             int response = conn.getResponseCode();
             if (response != HTTP_OK) {
                 //TODO: Error response code needs to be handled.
+                System.out.println("Error in response code");
                 throw new IOException("HTTP response code:" + response + "- failed to obtain data");
             }
 

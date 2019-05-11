@@ -1,6 +1,8 @@
 package yuheng.personal.findyourmatch.model;
 
-public class Participant extends Player {
+import android.os.Parcel;
+
+public class Participant extends Player{
     int participantId;
     int teamId;
     int championId;
@@ -11,6 +13,35 @@ public class Participant extends Player {
         super(summonerName, summonerId, accountId, profileIronId);
         this.participantId = participantId;
     }
+
+    protected Participant(Parcel in) {
+        super(in.readString(),in.readString(),in.readString(),in.readInt());
+        participantId = in.readInt();
+        teamId = in.readInt();
+        championId = in.readInt();
+        rank = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        super.writeToParcel(dest, flags);
+        dest.writeInt(participantId);
+        dest.writeInt(teamId);
+        dest.writeInt(championId);
+        dest.writeString(rank);
+    }
+
+    public static final Creator<Participant> CREATOR = new Creator<Participant>() {
+        @Override
+        public Participant createFromParcel(Parcel in) {
+            return new Participant(in);
+        }
+
+        @Override
+        public Participant[] newArray(int size) {
+            return new Participant[size];
+        }
+    };
 
     public int getParticipantId() {
         return participantId;
@@ -69,5 +100,10 @@ public class Participant extends Player {
                 "\nTeam ID: " + teamId +
                 "\nChampion ID: " + championId +
                 "\nRank: " + rank + participantStat.toString();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 }

@@ -1,10 +1,13 @@
 package yuheng.personal.findyourmatch.model;
 
-public abstract class Player {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public abstract class Player implements Parcelable {
     private String summonerName;
     private String summonerId;
     private String accountId;
-    private int profileIronId;
+    private int profileIconId;
 
     public Player(){}
 
@@ -12,7 +15,7 @@ public abstract class Player {
         this.summonerName = summonerName;
         this.summonerId = summonerId;
         this.accountId = accountId;
-        this.profileIronId = profileIronId;
+        this.profileIconId = profileIronId;
     }
 
     public String getSummonerName() {
@@ -39,18 +42,26 @@ public abstract class Player {
         this.accountId = accountId;
     }
 
-    public int getProfileIronId() {
-        return profileIronId;
+    public int getProfileIconId() {
+        return profileIconId;
     }
 
-    public void setProfileIronId(int profileIronId) {
-        this.profileIronId = profileIronId;
+    public void setProfileIconId(int profileIconId) {
+        this.profileIconId = profileIconId;
     }
 
     public String toString(){
         return "SummonerName: " + summonerName +
                 "\nSummonerId: " + summonerId +
                 "\nAccountId: " + accountId +
-                "\nProfileIronId: " + profileIronId + "\n";
+                "\nProfileIronId: " + profileIconId + "\n";
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(summonerName);
+        dest.writeString(summonerId);
+        dest.writeString(accountId);
+        dest.writeInt(profileIconId);
     }
 }
