@@ -14,12 +14,16 @@ import android.widget.TextView;
 import yuheng.personal.findyourmatch.model.MatchInfo;
 import yuheng.personal.findyourmatch.model.MatchManager;
 import yuheng.personal.findyourmatch.model.Summoner;
+import yuheng.personal.findyourmatch.providers.ChampionIconsProvider;
 import yuheng.personal.findyourmatch.providers.ItemImageProvider;
+import yuheng.personal.findyourmatch.providers.ProfileIconsProvider;
 
 public class SummonerPage extends AppCompatActivity {
   Summoner summoner;
   MatchManager matchManager = MatchManager.getInstance();
   ItemImageProvider itemImageProvider;
+  ChampionIconsProvider championIconsProvider;
+  ProfileIconsProvider profileIconsProvider;
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
