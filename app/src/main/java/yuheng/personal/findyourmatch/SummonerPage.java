@@ -30,9 +30,9 @@ public class SummonerPage extends AppCompatActivity {
   @Override
   protected void onResume() {
     super.onResume();
-    displaySummonerInfo();
+    //displaySummonerInfo();
     //new findMatchInfo().execute();
-    new displayImage().execute(3031);
+    new displayImage().execute(59);
 
   }
 

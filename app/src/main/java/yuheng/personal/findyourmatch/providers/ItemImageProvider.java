@@ -9,7 +9,7 @@ public class ItemImageProvider extends AbstractImageProvider {
   private static String rootUrl = "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/data/items/icons2d/";
 
   private ItemImageProvider(String rootUrl){
-    hashMap = updateMap(Update(rootUrl));
+    hashMap = updateMap(rootUrl);
   }
 
   public static ItemImageProvider getInstance(){
@@ -21,6 +21,6 @@ public class ItemImageProvider extends AbstractImageProvider {
   @Override
   public Bitmap getImage(int imageNum) {
     String url = rootUrl + hashMap.get(imageNum);
-    return getImageFromUrl(url,imageNum);
+    return getImageFromUrl(url);
   }
 }

@@ -1,5 +1,5 @@
 package yuheng.personal.findyourmatch.providers;
 
 public class ApiKey {
-    public static final String API_KEY = "RGAPI-4a723ad3-5b74-43ad-910e-e98edd910a23";
+    public static final String API_KEY = "RGAPI-c8141cb1-56b6-40ae-a3fc-c0cb9e4c7f3b";
 }
